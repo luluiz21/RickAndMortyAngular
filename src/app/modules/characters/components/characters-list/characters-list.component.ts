@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CharacterService } from 'src/app/core/services/character.service';
 import { FilterService } from 'src/app/core/services/filter.service';
@@ -11,7 +11,10 @@ import { Character } from 'src/app/shared/models/character.model';
 })
 export class CharactersListComponent implements OnInit {
 
+  @ViewChild('scrollContainer') private scrollContainer: ElementRef | undefined;
+
   private searchSubscription: Subscription | undefined;
+  filterName: string = '';
   characters: Character[] = [];
   nextPage = 2;
   hasNextPage = true;
@@ -31,19 +34,33 @@ export class CharactersListComponent implements OnInit {
     this.searchSubscription = this.filterService.getSearchTerm().subscribe(term => {
       this.applyFilter(term);
     });
-    this.loadCharacters();
+    /* this.loadCharacters(); */
   }
 
   applyFilter(term: string) {
-    console.log('teste');
     
     this.characterService.getCharacters(undefined, term).subscribe(
       ((data) => {
+        this.filterName = term;
         this.characters = data.results;
+        this.resetScroll();
+        if(data.info.next !== null){
+          this.nextPage = 2;
+          this.hasNextPage = true;
+        }
         console.log(this.characters);
       }),
       (error) => console.error(error)
     );
+  }
+
+  resetScroll() {
+    console.log(this.scrollContainer);
+    if (this.scrollContainer) {
+      console.log(this.scrollContainer.nativeElement);
+      
+      this.scrollContainer.nativeElement.scrollTop = 0;
+    }
   }
 
   loadCharacters(): void {
@@ -61,7 +78,7 @@ export class CharactersListComponent implements OnInit {
     console.log('teste');
     if(this.hasNextPage){
 
-      this.characterService.getCharacters(this.nextPage.toString()).subscribe(
+      this.characterService.getCharacters(this.nextPage.toString(), this.filterName).subscribe(
         ((data) => {
           this.characters.push(...data.results);
           console.log(this.characters);

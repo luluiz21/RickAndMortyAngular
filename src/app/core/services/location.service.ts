@@ -11,10 +11,13 @@ export class LocationService {
 
   constructor(private http: HttpClient) { }
 
-  getLocations(page?: string): Observable<any> {
+  getLocations(page?: string, name?:string): Observable<any> {
     let params = new HttpParams();
     if (page) {
       params = params.set('page', page);
+    }
+    if(name){
+      params = params.set('name', name);
     }
     return this.http.get(this.apiUrl, {params });
   }

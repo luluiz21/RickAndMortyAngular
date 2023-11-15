@@ -1,21 +1,39 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnChanges {
   @Input() data: any[] = [];
   @Input() columns: { key: string; title: string }[] = [];
   @Output() needMoreData = new EventEmitter<void>();
+  @ViewChild('scrollContainer') private scrollContainer: ElementRef | undefined;
 
   constructor() { }
 
   ngOnInit() {
   }
+  ngOnChanges(changes: SimpleChanges) {
+    
+    
+    if (changes['data']) {
+      console.log(changes);
+      this.resetScrollPosition();
+      // Faça algo sempre que a propriedade data for atualizada
+      console.log('Os dados foram atualizados', changes['data'].currentValue);
+    }
+  }
 
   loadMoreData(){
     this.needMoreData.emit();
   }
+
+  resetScrollPosition() {
+    if (this.scrollContainer) {
+      this.scrollContainer.nativeElement.scrollTop = 0;
+    }
+  }
 }
+
