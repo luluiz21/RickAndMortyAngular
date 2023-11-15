@@ -23,10 +23,7 @@ export class TableComponent implements OnInit, OnChanges {
     
     
     if (changes['data']) {
-      console.log(changes);
       this.resetScrollPosition();
-      // Faça algo sempre que a propriedade data for atualizada
-      console.log('Os dados foram atualizados', changes['data'].currentValue);
     }
   }
 

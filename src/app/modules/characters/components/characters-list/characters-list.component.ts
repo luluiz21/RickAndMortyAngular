@@ -34,7 +34,6 @@ export class CharactersListComponent implements OnInit {
     this.searchSubscription = this.filterService.getSearchTerm().subscribe(term => {
       this.applyFilter(term);
     });
-    /* this.loadCharacters(); */
   }
 
   applyFilter(term: string) {
@@ -48,40 +47,25 @@ export class CharactersListComponent implements OnInit {
           this.nextPage = 2;
           this.hasNextPage = true;
         }
-        console.log(this.characters);
       }),
-      (error) => console.error(error)
-    );
+      (error) => {
+        if(error.status === 404){
+          this.characters = [];
+        }
+    });
   }
 
   resetScroll() {
-    console.log(this.scrollContainer);
     if (this.scrollContainer) {
-      console.log(this.scrollContainer.nativeElement);
-      
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
 
-  loadCharacters(): void {
-    this.characterService.getCharacters().subscribe(
-      ((data) => {
-        this.characters = data.results;
-        console.log(this.characters);
-        
-      }),
-      (error) => console.error(error)
-    );
-  }
-
   loadMoreCharacters():void {
-    console.log('teste');
     if(this.hasNextPage){
-
       this.characterService.getCharacters(this.nextPage.toString(), this.filterName).subscribe(
         ((data) => {
           this.characters.push(...data.results);
-          console.log(this.characters);
           this.nextPage++;
           if(data.info.next === null){
             this.hasNextPage = false;

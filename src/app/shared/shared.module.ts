@@ -14,7 +14,8 @@ import { TableComponent } from './components/table/table.component';
     NavbarComponent,
     InfiniteScrollDirective,
     TableComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    FilterBarComponent
   ],
   declarations: [
     FilterBarComponent,

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { API_BASE_URL } from 'src/app/config/api.config';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { Character } from 'src/app/shared/models/character.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,15 @@ export class CharacterService {
 
   getCharacter(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  getCharacterWithUrl(url: string): Observable<Character>{
+    return this.http.get<Character>(url).pipe(
+      map((response: any) => {
+        // Transformação, se necessário
+        return response;
+      })
+    );
   }
 
 

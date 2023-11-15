@@ -31,7 +31,6 @@ export class EpisodesListComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    /* this.loadEpisodes(); */
     this.searchSubscription = this.filterService.getSearchTerm().subscribe(term => {
       this.applyFilter(term);
     });
@@ -48,39 +47,24 @@ export class EpisodesListComponent implements OnInit, OnDestroy {
           this.nextPage = 2;
           this.hasNextPage = true;
         }
-        console.log(this.episodes);
       }),
-      (error) => console.error(error)
-    );
+      (error) => {
+        if(error.status === 404){
+          this.episodes = [];
+        }
+    });
   }
   resetScroll() {
-    console.log(this.scrollContainer);
     if (this.scrollContainer) {
-      console.log(this.scrollContainer.nativeElement);
-      
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
 
-  loadEpisodes(): void {
-    this.episodeService.getEpisodes().subscribe(
-      ((data) => {
-        this.episodes = data.results;
-        console.log(this.episodes);
-        
-      }),
-      (error) => console.error(error)
-    );
-  }
-
   loadMoreEpisodes():void {
-    console.log('teste');
     if(this.hasNextPage){
-
       this.episodeService.getEpisodes(this.nextPage.toString()).subscribe(
         ((data) => {
           this.episodes.push(...data.results);
-          console.log(this.episodes);
           this.nextPage++;
           if(data.info.next === null){
             this.hasNextPage = false;

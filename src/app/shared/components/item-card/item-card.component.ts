@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-card',
@@ -12,9 +13,13 @@ export class ItemCardComponent implements OnInit {
   @Input() name: string = '';
   @Input() count: number = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigateTo(path: string) {
+    this.router.navigate([`/${path}`]);
   }
 
 }

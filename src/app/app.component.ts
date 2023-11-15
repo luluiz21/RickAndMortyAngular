@@ -10,6 +10,7 @@ import { filter } from 'rxjs';
 export class AppComponent {
   title = 'RickAndMorty';
   showNavbar: boolean = true;
+  showFilterBar: boolean = true;
 
   constructor(private router: Router) {
     // Inscrever-se para eventos de navegação
@@ -19,6 +20,9 @@ export class AppComponent {
     ).subscribe((event: NavigationEnd) => {
       // A lógica para decidir quando mostrar o navbar
       this.showNavbar = !event.urlAfterRedirects.startsWith('/login');
+      this.showFilterBar = ['/characters', '/locations', '/episodes'].some(path => event.url.endsWith(path));
+      /* // Exclui URLs detalhadas como /characters/{id}
+      this.showFilterBar = this.showFilterBar && !event.urlAfterRedirects.includes('/characters/'); */
     });
   }
 }

@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { API_BASE_URL } from 'src/app/config/api.config';
+import { Episode } from 'src/app/shared/models/episode.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,15 @@ export class EpisodeService {
 
   getEpisode(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  getEpisodeWithUrl(url: string): Observable<Episode>{
+    return this.http.get<Episode>(url).pipe(
+      map((response: any) => {
+        // Transformação, se necessário
+        return response;
+      })
+    );
   }
 
 }

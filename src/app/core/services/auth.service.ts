@@ -8,25 +8,37 @@ export class AuthService {
   
   private loggedIn = new BehaviorSubject<boolean>(false);
   
-  constructor() { }
-  
-  // Mock do login
-  login(username: string, password: string): Observable<boolean> {
-    // Aqui você pode adicionar condições de verificação para o username e password
-    if (username === 'admin' && password === 'admin') {
-      this.loggedIn.next(true);
-      return of(true).pipe(delay(1000));
-    }
-    return of(false);
+  constructor() {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    this.loggedIn.next(isLoggedIn);
   }
   
-  // Método para verificar se o usuário está logado
+  login(username: string, password: string): Observable<boolean> {
+    const users = JSON.parse(sessionStorage.getItem('users') || '[]');
+    const userExists = users.some((user: { username: string; password: string; }) => user.username === username && user.password === password);
+    if (userExists) {
+      sessionStorage.setItem('isLoggedIn', 'true');
+      this.loggedIn.next(true);
+      return of(true);
+    } else {
+      return of(false);
+    }
+  }
+
+  register(username: string, password: string): Observable<boolean> {
+    const users = JSON.parse(sessionStorage.getItem('users') || '[]');
+    users.push({ username, password });
+    sessionStorage.setItem('users', JSON.stringify(users));
+    return of(true); 
+  }
+  
   isLoggedIn() {
     return this.loggedIn.asObservable();
   }
   
-  // Logout
+  
   logout() {
+    sessionStorage.removeItem('isLoggedIn');
     this.loggedIn.next(false);
   }
   

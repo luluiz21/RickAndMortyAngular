@@ -33,7 +33,6 @@ export class LocationsListComponent implements OnInit, OnDestroy {
     this.searchSubscription = this.filterService.getSearchTerm().subscribe(term => {
       this.applyFilter(term);
     });
-    /* this.loadLocation(); */
   }
 
   applyFilter(term: string) {
@@ -47,46 +46,34 @@ export class LocationsListComponent implements OnInit, OnDestroy {
           this.nextPage = 2;
           this.hasNextPage = true;
         }
-        console.log(this.locations);
       }),
-      (error) => console.error(error)
-    );
+      (error) => {
+          if(error.status === 404){
+            this.locations = [];
+          }
+      });
   }
 
   resetScroll() {
-    console.log(this.scrollContainer);
     if (this.scrollContainer) {
-      console.log(this.scrollContainer.nativeElement);
-      
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
 
-  loadLocation(): void {
-    this.locationService.getLocations().subscribe(
-      ((data) => {
-        this.locations = data.results;
-        console.log(this.locations);
-        
-      }),
-      (error) => console.error(error)
-    );
-  }
-
   loadMoreLocations():void {
-    console.log('teste');
     if(this.hasNextPage){
 
       this.locationService.getLocations(this.nextPage.toString()).subscribe(
         ((data) => {
           this.locations.push(...data.results);
-          console.log(this.locations);
           this.nextPage++;
           if(data.info.next === null){
             this.hasNextPage = false;
           }
         }),
-        (error) => console.error(error)
+        (error) => {
+          console.error(error)
+        }
       );
     }
   }

@@ -8,9 +8,7 @@ export const canActivate: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const authService = inject(AuthService);
-  const router = inject(Router);
-  console.log('teste');
-  
+  const router = inject(Router);  
 
   return authService.isLoggedIn().pipe(
     map(isLoggedIn => {

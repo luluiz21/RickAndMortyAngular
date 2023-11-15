@@ -6,9 +6,8 @@
     </div>
   </ng-template>
   <div class="card-body">
-    <h5 class="card-title">{{ title | titlecase }}</h5>
-    <p class="card-text">{{ name }}</p>
-    <p class="card-text">Total: {{ count }}</p>
-    <a href="#" class="btn btn-primary">See List</a>
+    <h5 class="card-text">{{ name }}</h5>
+    <p class="card-text">Total: {{ count }}  {{title}}</p>
+    <a (click)="navigateTo(title)" class="btn btn-primary">See List</a>
   </div>
 </div>

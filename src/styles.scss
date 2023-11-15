@@ -108,3 +108,23 @@ button:hover {
 .card a:hover {
   text-decoration: underline;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-background); 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary); 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-info); 
+}
+
+li {
+  cursor: pointer;
+}

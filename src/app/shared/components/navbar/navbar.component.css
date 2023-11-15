@@ -4,18 +4,19 @@
   }
   
   .navbar-brand {
-    color: var(--color-primary) !important; /* Sobrepor cores do Bootstrap */
+    color: var(--color-primary) !important; 
   }
   
   .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,...") !important; /* Personalize o ícone do toggler se necessário */
+    background-image: url("data:image/svg+xml,...") !important; 
   }
   
   .navbar-nav .nav-link {
-    color: var(--navbar-accent-color) !important; /* Sobrepor cores do Bootstrap */
+    color: var(--navbar-accent-color) !important; 
   }
   
   .navbar-nav .nav-item.active .nav-link,
   .navbar-nav .nav-link:hover {
-    color: var(--navbar-hover-color) !important; /* Cor de hover */
+    color: var(--navbar-hover-color) !important; 
   }
+  

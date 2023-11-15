@@ -1,3 +1,24 @@
-<p>
-  character-details works!
-</p>
+<div class="container character-details">
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="character?.image" alt="{{ character?.name }}" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <h2>{{ character?.name }}</h2>
+      <p><strong>Status:</strong> {{ character?.status }}</p>
+      <p><strong>Specie:</strong> {{ character?.species }}</p>
+      <p><strong>Type:</strong> {{ character?.type || 'N/A' }}</p>
+      <p><strong>Gender:</strong> {{ character?.gender }}</p>
+      <p (click)="goToDetails(character?.origin?.url)"><strong>Origin:</strong> {{ character?.origin?.name }}</p>
+      <p (click)="goToDetails(character?.location?.url)"><strong>Location:</strong> {{ character?.location?.name }}</p>
+      <div class="episodes">
+        <h3>Episodes</h3>
+        <ul class="custom-scrollbar">
+          <li *ngFor="let episodeUrl of character?.episode" (click)="goToDetails(episodeUrl)">
+            {{ episodeNames[episodeUrl] || 'Carregando...' }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

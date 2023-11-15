@@ -48,7 +48,7 @@ export class DashboardHomeComponent implements OnInit {
       this.randomLocation = location;
       this.numberOfCard.push({
         title: 'locations',
-        image: '',
+        image: '../../../../../assets/images/rick-and-morty-random-1.png',
         count: this.locationsCount,
         name: location.name
       });
@@ -57,7 +57,7 @@ export class DashboardHomeComponent implements OnInit {
       this.randomEpisode = episode;
       this.numberOfCard.push({
         title: 'episodes',
-        image: '',
+        image: '../../../../../assets/images/rick-and-morty-random-2.png',
         count: this.episodesCount,
         name: episode.name
       });
