@@ -1,17 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" (click)="navigateTo('')">Rick & Morty Dashboard</a>
+  <a class="navbar-brand" (click)="navigateTo('')">
+    <img src="../../../../assets/images/rick-and-morty-logo.png" alt="Rick and Morty Dashboard" height="30"> Rick & Morty Dashboard
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item" [class.active]="activeLink === '/characters'">
         <a class="nav-link" (click)="navigateTo('/characters')">Characters</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active]="activeLink === '/locations'">
         <a class="nav-link" (click)="navigateTo('/locations')">Locations</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [class.active]="activeLink === '/episodes'">
         <a class="nav-link" (click)="navigateTo('/episodes')">Episodes</a>
       </li>
     </ul>

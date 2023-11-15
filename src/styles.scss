@@ -6,6 +6,8 @@ $secondary-color: #3c3e44; /* Cinza escuro, como o fundo espacial */
 $accent-color: #e6e6e6; /* Cinza claro, para fontes e outros elementos */
 $background-color: #202329; /* Quase preto, para fundos */
 $info-color: #588c7e; /* Azul esverdeado, para botões e links */
+$navbar-background-color: #3c3e44; /* Um tom escuro para o fundo da navbar */
+$navbar-hover-color: #89b043; /* Uma variação do verde para hover */
 
 // Em seguida, crie variáveis CSS com esses valores
 :root {
@@ -14,6 +16,8 @@ $info-color: #588c7e; /* Azul esverdeado, para botões e links */
   --color-accent: #{$accent-color};
   --color-background: #{$background-color};
   --color-info: #{$info-color};
+  --navbar-background-color: #{$navbar-background-color};
+  --navbar-hover-color: #{$navbar-hover-color};
 }
 
 body {
@@ -92,4 +96,15 @@ button {
 
 button:hover {
   background-color: darken($info-color, 10%);
+}
+
+//card
+
+.card a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.card a:hover {
+  text-decoration: underline;
 }

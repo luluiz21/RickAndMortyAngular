@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,10 @@ export class TableComponent implements OnInit, OnChanges {
   @Output() needMoreData = new EventEmitter<void>();
   @ViewChild('scrollContainer') private scrollContainer: ElementRef | undefined;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
   }
@@ -28,6 +32,10 @@ export class TableComponent implements OnInit, OnChanges {
 
   loadMoreData(){
     this.needMoreData.emit();
+  }
+
+  goToItem(id: number){
+    this.router.navigate([id], { relativeTo: this.route });
   }
 
   resetScrollPosition() {

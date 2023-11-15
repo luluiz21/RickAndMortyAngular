@@ -1,0 +1,21 @@
+.navbar {
+    background-color: var(--navbar-background-color) !important;
+    border-bottom: 3px solid var(--color-primary) !important;
+  }
+  
+  .navbar-brand {
+    color: var(--color-primary) !important; /* Sobrepor cores do Bootstrap */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,...") !important; /* Personalize o ícone do toggler se necessário */
+  }
+  
+  .navbar-nav .nav-link {
+    color: var(--navbar-accent-color) !important; /* Sobrepor cores do Bootstrap */
+  }
+  
+  .navbar-nav .nav-item.active .nav-link,
+  .navbar-nav .nav-link:hover {
+    color: var(--navbar-hover-color) !important; /* Cor de hover */
+  }

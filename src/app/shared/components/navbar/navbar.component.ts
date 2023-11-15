@@ -7,8 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  activeLink: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    router.events.subscribe((val) => {
+      this.activeLink = router.url;
+    });
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,79 @@
+/* Estilos da Tabela com a Paleta de Cores "Rick and Morty" */
+.table {
+    color: var(--color-accent); /* Cor do texto das células */
+    background-color: var(--color-background); /* Cor de fundo das células */
+  }
+  
+  /* Cabeçalho da Tabela */
+  .table thead th {
+    background-color: var(--color-secondary); /* Um tom mais escuro para o cabeçalho */
+    color: var(--color-primary); /* Cor de destaque para o texto do cabeçalho */
+  }
+  
+  /* Linhas da Tabela */
+  .table tbody tr {
+    border-bottom: 1px solid var(--color-secondary); /* Adiciona uma borda para separar as linhas */
+  }
+  
+  /* Efeito de Hover */
+  .table-hover tbody tr:hover {
+    background-color: var(--color-info); /* Cor de destaque para o hover */
+    color: #fff; /* Texto branco para contraste */
+  }
+  
+  /* Ajuste a cor dos links dentro da tabela se necessário */
+  .table a {
+    color: var(--color-primary);
+    text-decoration: none; /* Remove o sublinhado padrão */
+  }
+  
+  .table a:hover {
+    color: var(--color-info); /* Cor de destaque para hover nos links */
+  }
+  
+  /* Estilo para o scroll */
+  ::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-background); /* Cor de fundo da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary); /* Cor da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-info); /* Cor da barra de rolagem ao passar o mouse */
+  }
+  
+  /* Estilos para a parte de navegação infinita, se necessário */
+  .infinite-scroll-container {
+    position: relative;
+  }
+  
+  .loading-spinner {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+  }
+  
+  .table td {
+    background-color: var(--color-background); /* Cor de fundo para células */
+    border-top: 1px solid var(--color-secondary); /* Linhas entre as células */
+    color: var(--color-accent); /* Cor do texto */
+  }
+  
+  /* Melhora o contraste e a visibilidade do texto */
+  .table td,
+  .table th {
+    color: var(--color-accent);
+  }
+  
+  /* Adiciona um estilo de hover mais distinto para as linhas da tabela */
+  .table-hover tbody tr:hover td {
+    background-color: var(--color-info); /* Cor de fundo para o hover */
+    color: #fff; /* Cor do texto para o hover */
+  }
