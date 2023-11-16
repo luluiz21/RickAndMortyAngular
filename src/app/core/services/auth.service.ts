@@ -23,7 +23,7 @@ export class AuthService {
       sessionStorage.setItem('isLoggedIn', 'true');
       sessionStorage.setItem('activeUsername', username);
       this.loggedIn.next(true);
-      return of(true);
+      return of(true).pipe(delay(1000));
     } else {
       return of(false);
     }
