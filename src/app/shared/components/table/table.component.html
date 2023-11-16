@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of data" (click)="goToItem(item.id)">
-          <td *ngFor="let column of columns">
+          <td *ngFor="let column of columns" style="cursor: pointer;">
             {{ item[column.key] }}
           </td>
         </tr>

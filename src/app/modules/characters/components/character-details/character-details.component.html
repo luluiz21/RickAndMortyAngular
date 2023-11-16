@@ -9,8 +9,8 @@
       <p><strong>Specie:</strong> {{ character?.species }}</p>
       <p><strong>Type:</strong> {{ character?.type || 'N/A' }}</p>
       <p><strong>Gender:</strong> {{ character?.gender }}</p>
-      <p (click)="goToDetails(character?.origin?.url)"><strong>Origin:</strong> {{ character?.origin?.name }}</p>
-      <p (click)="goToDetails(character?.location?.url)"><strong>Location:</strong> {{ character?.location?.name }}</p>
+      <p (click)="goToDetails(character?.origin?.url)" [ngClass]="{'clickable': character?.origin?.name !== 'unknown'}"><strong>Origin:</strong> {{ character?.origin?.name }}</p>
+      <p (click)="goToDetails(character?.location?.url)" [ngClass]="{'clickable': character?.location?.name !== 'unknown'}"><strong>Location:</strong> {{ character?.location?.name }}</p>
       <div class="episodes">
         <h3>Episodes</h3>
         <ul class="custom-scrollbar">

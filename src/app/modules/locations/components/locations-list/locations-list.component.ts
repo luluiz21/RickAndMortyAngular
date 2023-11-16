@@ -34,13 +34,14 @@ export class LocationsListComponent implements OnInit, OnDestroy {
       this.applyFilter(term);
     });
   }
-
+  /* Aplica o filtro pelo nome colocado na filtragem */
   applyFilter(term: string) {
     
     this.locationService.getLocations(undefined, term).subscribe(
       ((data) => {
         this.filterName = term;
         this.locations = data.results;
+        /* Reseta o scroll do mouse de acordo com a filtragem */
         this.resetScroll();
         if(data.info.next !== null){
           this.nextPage = 2;
@@ -53,13 +54,13 @@ export class LocationsListComponent implements OnInit, OnDestroy {
           }
       });
   }
-
+  /* Reseta o scroll do mouse */
   resetScroll() {
     if (this.scrollContainer) {
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
-
+  /* Carrega mais dados da API de acordo com o parametro page  */
   loadMoreLocations():void {
     if(this.hasNextPage){
 

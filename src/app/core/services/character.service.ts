@@ -11,7 +11,7 @@ export class CharacterService {
   private apiUrl = `${API_BASE_URL}/character`;
 
   constructor(private http: HttpClient) { }
-
+  /* Chamada da api que retorna uma lista de Characters */
   getCharacters(page?: string, name?:string): Observable<any> {
     let params = new HttpParams();
     if (page) {
@@ -22,15 +22,14 @@ export class CharacterService {
     }
     return this.http.get(this.apiUrl, {params });
   }
-
+  /* Chamada da api que retorna um Character por ID */
   getCharacter(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
-
+  /* Chamada da api direto pela url que retorna na API do Rick And Morty */
   getCharacterWithUrl(url: string): Observable<Character>{
     return this.http.get<Character>(url).pipe(
       map((response: any) => {
-        // Transformação, se necessário
         return response;
       })
     );

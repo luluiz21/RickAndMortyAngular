@@ -5,9 +5,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   newUsername: string = '';
   newPassword: string = '';
 
@@ -15,19 +15,22 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private router: Router
     ) { }
-
-  ngOnInit() {
-  }
-
+  /* Envia os dados do formulário para o serviço de register para entrar cadastrar o usuário */
   onRegister() {
     this.authService.register(this.newUsername, this.newPassword).subscribe(success => {
+      console.log(success);
+      
       if (success) {
-        alert('Registro bem-sucedido. Faça login.');
+        alert('Registration successful. Please log in.');
         this.router.navigate(['login']);
       } else {
-        alert('Falha no registro. Tente novamente.');
+        alert('User already exists');
       }
     });
+  }
+  /* Vai para o login */
+  goToLogin(): void {
+    this.router.navigate(['/login']); 
   }
 
 }

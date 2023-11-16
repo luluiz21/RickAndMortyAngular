@@ -11,6 +11,13 @@
     color: var(--color-accent);
     font-size: 1.1em;
   }
+  .clickable {
+    cursor: pointer;
+  }
+  
+  .clickable:hover {
+    text-decoration: underline; /* ou qualquer outro efeito de hover que você desejar */
+  }
   
   .character-details .episodes h3 {
     color: var(--color-primary);

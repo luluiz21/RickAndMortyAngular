@@ -30,8 +30,10 @@ export class LocationDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    /* Pega o id pela rota */
     this.getDetailsLocation(this.route.snapshot.params["id"]);
   }
+  /* Pega os detalhes do local pelo id */
   getDetailsLocation(id: number){
     this.locationService.getLocation(id).subscribe(
       (data)=>{
@@ -43,6 +45,7 @@ export class LocationDetailsComponent implements OnInit {
       }
     )
   }
+  /* pega os residentes do local */
   getCharacterName(episodeUrl: string): void {
     if (!this.charactersNames[episodeUrl]) {
       this.characterService.getCharacterWithUrl(episodeUrl).subscribe(
@@ -57,7 +60,7 @@ export class LocationDetailsComponent implements OnInit {
     }
   }
 
-
+  /* Vai para os detalhes do residente de acordo com a url que veio da resposta da API */
   goToDetails(episodeUrl: string | undefined): void { 
     let url = episodeUrl?.split('/');
     
@@ -67,11 +70,12 @@ export class LocationDetailsComponent implements OnInit {
     this.router.navigate([`/${detailsName}s`, detailsId]);
   }
 
+  /* Controlador da div da imagem do residente */
   showImage(characterUrl: string | undefined, characterName: string | undefined): void {
     this.selectedCharacterImage = characterUrl;
     this.selectedCharacterName = characterName;
   }
-
+  /* Controlador da div da imagem do residente */
   hideImage(): void {
     this.selectedCharacterImage = undefined;
     this.selectedCharacterName = undefined;

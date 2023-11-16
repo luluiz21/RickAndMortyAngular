@@ -15,7 +15,7 @@ export class InfiniteScrollDirective {
     const scrollPosition = target.scrollHeight - target.scrollTop;
     const offset = target.clientHeight;
     
-    // Verifica se o usuário chegou ao final do elemento
+    // Verifica se o usuário chegou ao final do elemento e envia o evento
     if (scrollPosition === offset) {
       this.scrollToEnd.emit();
     }

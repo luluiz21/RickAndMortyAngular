@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./item-card.component.css']
 })
 export class ItemCardComponent implements OnInit {
-
+  /* Inputs que vem do dashboard para construir o card */
   @Input() title: string = '';
   @Input() imageUrl: string = '';
   @Input() name: string = '';
@@ -17,7 +17,7 @@ export class ItemCardComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  /* Vai para o caminhho do card escolhido */
   navigateTo(path: string) {
     this.router.navigate([`/${path}`]);
   }

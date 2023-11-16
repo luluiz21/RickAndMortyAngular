@@ -25,9 +25,9 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getDetailsCharacter(this.route.snapshot.params["id"]);
-    
   }
 
+  /* Pega os detalhes do personagem por Id */
   getDetailsCharacter(id: number){
     this.characterService.getCharacter(id).subscribe(
       (data)=>{
@@ -39,7 +39,7 @@ export class CharacterDetailsComponent implements OnInit {
       }
     )
   }
-
+  /* Pega o nome dos episódios que o personagem participou*/
   getEpisodeName(episodeUrl: string): void {
     
     if (!this.episodeNames[episodeUrl]) {
@@ -53,6 +53,7 @@ export class CharacterDetailsComponent implements OnInit {
       );
     }
   }
+  /* Vai para os detalhes do episódio ou local */
   goToDetails(episodeUrl: string | undefined): void { 
     let url = episodeUrl?.split('/');
     

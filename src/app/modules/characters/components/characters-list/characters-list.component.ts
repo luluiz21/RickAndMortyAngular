@@ -10,8 +10,9 @@ import { Character } from 'src/app/shared/models/character.model';
   styleUrls: ['./characters-list.component.css']
 })
 export class CharactersListComponent implements OnInit {
-
+  /* Veficica o scrollContainer para funções do Scroll */
   @ViewChild('scrollContainer') private scrollContainer: ElementRef | undefined;
+
 
   private searchSubscription: Subscription | undefined;
   filterName: string = '';
@@ -35,7 +36,7 @@ export class CharactersListComponent implements OnInit {
       this.applyFilter(term);
     });
   }
-
+  /* Aplica o filtro de acordo com o nome */
   applyFilter(term: string) {
     
     this.characterService.getCharacters(undefined, term).subscribe(
@@ -54,13 +55,13 @@ export class CharactersListComponent implements OnInit {
         }
     });
   }
-
+  /* Função para resetar o scroll quando o filtro é atualizado */
   resetScroll() {
     if (this.scrollContainer) {
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
-
+  /* Carrega mais personagens, de acordo com o parametro page */
   loadMoreCharacters():void {
     if(this.hasNextPage){
       this.characterService.getCharacters(this.nextPage.toString(), this.filterName).subscribe(

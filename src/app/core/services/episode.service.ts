@@ -11,7 +11,7 @@ export class EpisodeService {
   private apiUrl = `${API_BASE_URL}/episode`;
 
   constructor(private http: HttpClient) { }
-
+  /* Chamada da api que retorna uma lista de Episodes */
   getEpisodes(page?: string, name?:string): Observable<any> {
     let params = new HttpParams();
     if (page) {
@@ -22,15 +22,14 @@ export class EpisodeService {
     }
     return this.http.get(this.apiUrl, {params });
   }
-
+  /* Chamada da api que retorna um Episode por ID */
   getEpisode(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
-
+  /* Chamada da api direto pela url que retorna na API do Rick And Morty */
   getEpisodeWithUrl(url: string): Observable<Episode>{
     return this.http.get<Episode>(url).pipe(
       map((response: any) => {
-        // Transformação, se necessário
         return response;
       })
     );

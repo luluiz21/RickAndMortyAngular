@@ -5,19 +5,16 @@ import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
   username: string = '';
   password: string = '';
   showPortalAnimation: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit() {
-  }
-  
+  /* Envia os dados do formulário para o serviço de login para entrar na aplicação */
   onSubmit() {
     this.showPortalAnimation = true;
 
@@ -29,6 +26,10 @@ export class LoginComponent implements OnInit {
         alert('Login failed');
       }
     });
+  }
+  /* Envia o usuário para o cadastro */
+  goToRegister(): void {
+    this.router.navigate(['/register']); 
   }
 
 

@@ -33,7 +33,7 @@ export class DashboardHomeComponent implements OnInit {
     this.loadDashboardInfo();
     
   }
-
+  /* Faz a chamada para as informações para cada card */
   loadDashboardInfo(): void{
     this.fetchInfo(this.characterService.getCharacters(), (count) => this.characterService.getCharacter(count), 'charactersCount').subscribe(character => {
       this.randomCharacter = character;
@@ -65,12 +65,15 @@ export class DashboardHomeComponent implements OnInit {
 
   }
 
-
+  /* É um método genérico para reutilização para buscas de dados das diferentes entidades (Character, Episode, Location). 
+  Primeiro ele chama a API para pegar informações da quantidade de dados
+  Depois ele faz a chamada por ID de acordo com o count  */
   fetchInfo<T>(fetchFunction: Observable<any>, fetchItemFunction: (res: number) => Observable<T>, countPropertyName: keyof DashboardHomeComponent): Observable<T> {
     return fetchFunction.pipe(
       switchMap(data => {
         this[countPropertyName] = data.info.count;
-        const randomNumber = Math.floor(Math.random() * data.info.count);
+        /* Pega o valor aleatório de acordo com o count da API */
+        const randomNumber = Math.floor(Math.random() * data.info.count) + 1;
         return fetchItemFunction(randomNumber);
       })
     );

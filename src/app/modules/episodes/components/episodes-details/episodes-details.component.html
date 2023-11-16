@@ -18,7 +18,6 @@
           (click)="goToDetails(characterUrl)"
           (mouseover)="showImage(charactersImage[characterUrl], charactersNames[characterUrl])" 
           (mouseleave)="hideImage()" class="li-char">
-            <!-- Assumindo que você tem uma função para buscar o nome do personagem usando a URL -->
             {{ charactersNames[characterUrl] || 'Carregando...' }} 
           </li>
         </ul>

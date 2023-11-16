@@ -1,6 +1,29 @@
 # RickAndMorty
 
+Este projeto é um dashboard interativo para explorar personagens, localizações e episódios do universo de "Rick and Morty", utilizando a [Rick and Morty API](https://rickandmortyapi.com/).
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+
+## Funcionalidades
+
+- Visualização e pesquisa de personagens, localizações e episódios.
+- Detalhes de cada entidade com informações específicas.
+- Sistema de autenticação mockado com login e registro de usuários.
+- Sessões de usuário gerenciadas via sessionStorage.
+
+## Tecnologias Utilizadas
+
+- Angular 16.1.8
+- Bootstrap para estilização
+- ng-bootstrap para componentes Angular
+- RxJS para programação reativa
+
+## Instalação
+
+Clone o repositório e instale as dependências:
+
+git clone https://github.com/seu-usuario/rick-morty-dashboard.git
+cd rick-morty-dashboard
+npm install 
 
 ## Development server
 

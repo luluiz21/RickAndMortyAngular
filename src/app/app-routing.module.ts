@@ -6,24 +6,29 @@ import { canActivate } from './core/guards/auth.guard';
 const routes: Routes = [
   { path: 'characters',
     loadChildren: () => import('./modules/characters/characters.module').then(m => m.CharactersModule),
-    canActivate:[/* canActivate */]
+    canActivate:[canActivate]
   },
   { path: 'locations',
     loadChildren: () => import('./modules/locations/locations.module').then(m => m.LocationsModule),
-    canActivate:[/* canActivate */]
+    canActivate:[canActivate]
   },
   { path: 'episodes',
     loadChildren: () => import('./modules/episodes/episodes.module').then(m => m.EpisodesModule),
-    canActivate:[/* canActivate */]
+    canActivate:[canActivate]
   },
-  { path: 'login',
-    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
-    canActivate:[]
+  { path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+    canActivate:[canActivate]
   },
   { path: '', 
      loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate:[/* canActivate */]
+    canActivate:[canActivate]
   },
+  { path: '',
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
+    canActivate:[]
+  },
+  
 ];
 
 @NgModule({

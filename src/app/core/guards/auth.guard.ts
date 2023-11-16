@@ -10,6 +10,7 @@ export const canActivate: CanActivateFn = (
   const authService = inject(AuthService);
   const router = inject(Router);  
 
+  /* Verifica a variável loggedIn do service para ver se ele está logado ou não. */
   return authService.isLoggedIn().pipe(
     map(isLoggedIn => {
       if (!isLoggedIn) {

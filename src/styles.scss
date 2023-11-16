@@ -18,6 +18,9 @@ $navbar-hover-color: #89b043; /* Uma variação do verde para hover */
   --color-info: #{$info-color};
   --navbar-background-color: #{$navbar-background-color};
   --navbar-hover-color: #{$navbar-hover-color};
+  --color-disabled-background: #2d2f36; /* Cinza ainda mais escuro que o secundário */
+  --color-disabled-text: #a8a8a8; /* Cinza mais claro para texto desabilitado */
+  --color-disabled-border: #41454d;
 }
 
 body {
@@ -84,7 +87,6 @@ input[type="password"]:focus {
 
 /* Button global style */
 button {
-  width: 100%;
   background-color: var(--color-info);
   color: white;
   padding: 14px 20px;

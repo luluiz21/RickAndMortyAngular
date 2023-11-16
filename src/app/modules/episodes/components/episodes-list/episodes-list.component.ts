@@ -35,7 +35,7 @@ export class EpisodesListComponent implements OnInit, OnDestroy {
       this.applyFilter(term);
     });
   }
-
+  /* Aplica o filtro pelo nome colocado na filtragem */
   applyFilter(term: string) {
     
     this.episodeService.getEpisodes(undefined, term).subscribe(
@@ -54,12 +54,13 @@ export class EpisodesListComponent implements OnInit, OnDestroy {
         }
     });
   }
+  /* Reseta o scroll quando é aplicado o filtro */
   resetScroll() {
     if (this.scrollContainer) {
       this.scrollContainer.nativeElement.scrollTop = 0;
     }
   }
-
+  /* Carrega mais episódios de acordo com a página */
   loadMoreEpisodes():void {
     if(this.hasNextPage){
       this.episodeService.getEpisodes(this.nextPage.toString()).subscribe(
