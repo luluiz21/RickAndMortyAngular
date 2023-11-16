@@ -1,0 +1,9 @@
+.placeholder-image {
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 372px; 
+    font-size: 1.5rem;
+    color: var(--color-accent);
+  }

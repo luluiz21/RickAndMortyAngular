@@ -1,0 +1,73 @@
+.navbar {
+    background-color: var(--navbar-background-color) !important;
+    border-bottom: 3px solid var(--color-primary) !important;
+  }
+  
+  .navbar-brand {
+    color: var(--color-primary) !important; 
+  }
+  
+  /* .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,...") !important; 
+  } */
+  
+  .navbar-nav .nav-link {
+    color: var(--navbar-accent-color) !important; 
+  }
+  
+  .navbar-nav .nav-item.active .nav-link,
+  .navbar-nav .nav-link:hover {
+    color: var(--navbar-hover-color) !important; 
+  }
+  .navbar .dropdown-toggle {
+  color: var(--navbar-accent-color);
+}
+
+.navbar .dropdown-menu {
+  background-color: var(--navbar-background-color);
+}
+
+.navbar .dropdown-menu button {
+  color: var(--color-accent);
+}
+
+.navbar .dropdown-menu button:hover {
+  background-color: var(--navbar-hover-color);
+}
+
+.btn-outline-primary{
+  background-color: var(--color-info);
+}
+
+
+
+
+@media (min-width: 992px) {
+  .perfil-dropdown {
+    text-align: right;
+    padding-right: 80px;
+  }
+  .perfil-dropdown{
+    text-align: right;
+    padding-right: 80px;
+  }
+}
+
+/* Estilos para telas com largura menor que 992px */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--navbar-background-color); /* Cor de fundo para o menu colapsado */
+  }
+  
+  .perfil-dropdown {
+    text-align: center;
+    padding-right: 0;
+  }
+  
+  .navbar-toggler {
+    margin-left: auto; /* Alinha o botão do menu para a direita em telas menores */
+  }
+  .perfil-dropdown{
+    text-align: left;
+  }
+}

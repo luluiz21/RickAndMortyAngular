@@ -1,0 +1,28 @@
+<div class="profile-container">
+  <h2 class="profile-title">Profile</h2>
+
+  <div class="profile-group">
+    <label for="currentUsername" class="form-label">Current Username</label>
+    <input type="text" class="form-control" id="currentUsername" [value]="username" disabled>
+  </div>
+
+  <div class="profile-group" *ngIf="showUsernameChange">
+    <label for="newUsername" class="form-label">New Username</label>
+    <input type="text" class="form-control" id="newUsername" [(ngModel)]="newUsername" name="newUsername" required>
+    <button class="btn btn-primary" (click)="confirmUsernameChange()">Confirm</button>
+  </div>
+
+  <button class="btn btn-secondary" (click)="toggleUsernameChange()">Change Username</button>
+
+  <div class="profile-group" *ngIf="showPasswordChange">
+    <label for="oldPassword" class="form-label">Old Password</label>
+    <input type="password" class="form-control" id="oldPassword" [(ngModel)]="oldPassword" name="oldPassword" required>
+    
+    <label for="newPassword" class="form-label">New Password</label>
+    <input type="password" class="form-control" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required>
+
+    <button class="btn btn-primary" (click)="confirmPasswordChange()">Confirm</button>
+  </div>
+
+  <button class="btn btn-secondary" (click)="togglePasswordChange()">Change Password</button>
+</div>

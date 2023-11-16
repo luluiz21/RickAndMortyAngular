@@ -1,0 +1,27 @@
+<div class="container location-details">
+  <div class="row">
+    <div class="col-12 row">
+      <div class="col-6" style="height: 221px;">
+        <h2>{{ location?.name }}</h2>
+        <p><strong>Tipo:</strong> {{ location?.type }}</p>
+        <p><strong>Dimensão:</strong> {{ location?.dimension }}</p>
+
+      </div>
+      <div class="image-preview col-6" *ngIf="selectedCharacterImage">
+        <h2>{{ selectedCharacterName }}</h2>
+        <img [src]="selectedCharacterImage" alt="{{ selectedCharacterImage }}" class="img-fluid">
+      </div>
+      <div class="residents">
+        <h3>Residents</h3>
+        <ul class="custom-scrollbar">
+          <li *ngFor="let characterUrl of location?.residents" 
+          (click)="goToDetails(characterUrl)"
+          (mouseover)="showImage(charactersImage[characterUrl], charactersNames[characterUrl])" 
+          (mouseleave)="hideImage()" class="li-char">
+            {{ charactersNames[characterUrl] || 'Carregando...' }} 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

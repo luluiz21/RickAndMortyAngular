@@ -1,0 +1,44 @@
+.character-details img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .character-details h2 {
+    color: var(--color-primary);
+  }
+  
+  .character-details p {
+    color: var(--color-accent);
+    font-size: 1.1em;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+  
+  .clickable:hover {
+    text-decoration: underline; /* ou qualquer outro efeito de hover que você desejar */
+  }
+  
+  .character-details .episodes h3 {
+    color: var(--color-primary);
+  }
+  
+  .character-details .episodes ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .character-details .episodes ul li {
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
+.custom-scrollbar{
+  max-height: 300px; 
+  overflow-y: auto;
+  border: 1px solid var(--color-info);
+  border-radius: 5px 0px 0px 5px;
+}

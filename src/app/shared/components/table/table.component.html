@@ -1,0 +1,21 @@
+<div class = "d-flex" style="height: 90vh;">
+  <div #scrollContainer appInfiniteScroll (scrollToEnd)="loadMoreData()" class="col-12 custom-scrollbar" style="overflow-y: auto;">
+  <table class="table table-hover">
+    <thead >
+      <tr>
+        <th *ngFor="let column of columns">
+          {{ column.title }}
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data" (click)="goToItem(item.id)">
+          <td *ngFor="let column of columns" style="cursor: pointer;">
+            {{ item[column.key] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+
+</div>

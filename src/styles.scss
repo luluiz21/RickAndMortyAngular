@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// Defina as cores diretamente
+$primary-color: #97ce4c; /* Verde, como o portal */
+$secondary-color: #3c3e44; /* Cinza escuro, como o fundo espacial */
+$accent-color: #e6e6e6; /* Cinza claro, para fontes e outros elementos */
+$background-color: #202329; /* Quase preto, para fundos */
+$info-color: #588c7e; /* Azul esverdeado, para botões e links */
+$navbar-background-color: #3c3e44; /* Um tom escuro para o fundo da navbar */
+$navbar-hover-color: #89b043; /* Uma variação do verde para hover */
+
+// Em seguida, crie variáveis CSS com esses valores
+:root {
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-accent: #{$accent-color};
+  --color-background: #{$background-color};
+  --color-info: #{$info-color};
+  --navbar-background-color: #{$navbar-background-color};
+  --navbar-hover-color: #{$navbar-hover-color};
+  --color-disabled-background: #2d2f36; /* Cinza ainda mais escuro que o secundário */
+  --color-disabled-text: #a8a8a8; /* Cinza mais claro para texto desabilitado */
+  --color-disabled-border: #41454d;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-accent);
+}
+
+a {
+  color: var(--color-info);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Classes utilitárias globais */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.btn {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.btn-primary {
+  background-color: var(--color-info);
+}
+
+.btn-primary:hover {
+  background-color: darken($info-color, 10%);
+}
+
+/* Input global style */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--color-info);
+}
+
+/* Button global style */
+button {
+  background-color: var(--color-info);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darken($info-color, 10%);
+}
+
+//card
+
+.card a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-background); 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary); 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-info); 
+}
+
+li {
+  cursor: pointer;
+}

@@ -1,0 +1,39 @@
+/* filter-bar.component.css */
+.search-bar-container {
+  margin: 20px 0;
+  position: relative;
+}
+
+.search-bar-container .form-control {
+  padding: 10px 20px;
+  border: 2px solid var(--color-info); /* Usa uma cor do seu tema */
+  border-radius: 5px;
+  color: var(--color-accent);
+  background-color: var(--color-background);
+}
+
+.search-bar-container .form-control::placeholder {
+  color: var(--color-accent);
+}
+
+.search-bar-container .form-control:focus {
+  outline: none;
+  border-color: var(--color-primary); /* Cor de destaque quando focado */
+}
+/* filter-bar.component.css */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a label e o input */
+  }
+  
+  .form-label {
+    margin-bottom: 0; /* Se você estiver usando Bootstrap, pode precisar anular isso */
+    color: var(--color-accent); /* Cor da label */
+  }
+  
+  .form-control {
+    flex-grow: 1; /* Permite que o input cresça para preencher o espaço disponível */
+    max-width: 250px; /* Ou qualquer tamanho máximo que você preferir */
+    /* outros estilos */
+  }

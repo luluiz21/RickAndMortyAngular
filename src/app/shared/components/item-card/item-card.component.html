@@ -1,0 +1,13 @@
+<div class="card h-100">
+  <img *ngIf="imageUrl; else defaultImage" [src]="imageUrl" class="card-img-top" alt="{{ name }}">
+  <ng-template #defaultImage>
+    <div class="card-img-top placeholder-image">
+      <span>{{ title | titlecase }}</span>
+    </div>
+  </ng-template>
+  <div class="card-body">
+    <h5 class="card-text">{{ name }}</h5>
+    <p class="card-text">Total: {{ count }}  {{title}}</p>
+    <a (click)="navigateTo(title)" class="btn btn-primary">See More</a>
+  </div>
+</div>
